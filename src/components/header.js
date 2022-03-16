@@ -4,9 +4,7 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-import { makeStyles } from '@mui/material';
+import { Link } from '@mui/material';
 
 
 export default function HeaderBar(){
@@ -21,6 +19,9 @@ export default function HeaderBar(){
             }}>
               <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
                 Summer Cody
+              </Typography>
+              <Typography>
+                <Link href="/about">Click Me</Link>
               </Typography>
               <Button color="inherit">Login</Button>
             </Toolbar>
