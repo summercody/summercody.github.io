@@ -3,7 +3,7 @@
 
 export default function Home() {
     return (
-        <h1>Home</h1>
+        <h2 style={{ marginTop: '80px', marginLeft: '25px' }}>Welcome</h2>
     )
 }
 

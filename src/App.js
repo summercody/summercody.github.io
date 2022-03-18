@@ -10,6 +10,7 @@ import PageRoutes from './components/routes'
 function App() {
   return (
     <div className="App">
+      <HeaderBar />
       <PageRoutes />
     </div>
   );
