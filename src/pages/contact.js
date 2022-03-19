@@ -40,8 +40,8 @@ export default function Contact() {
         <motion.div variants = {header}>
           <HeaderBar />
         </motion.div>
-        <motion.div variants = {title}>
-          <h2 style={{ marginTop: '30px', marginLeft: '25px' }}>Contact Me</h2>
+        <motion.div className="flex items-center justify-center" variants = {title}>
+          <h2 style={{ marginTop: '100px', fontSize: '50px', fontWeight: '10' }}>Contact Me</h2>
           </motion.div>
       </motion.div>
     </motion.section>

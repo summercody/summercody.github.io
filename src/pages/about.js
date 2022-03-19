@@ -40,8 +40,8 @@ export default function About() {
         <motion.section variants={header}>
           <HeaderBar />
         </motion.section>
-        <motion.section variants={title}>
-          <h2 style={{ marginTop: '30px', marginLeft: '25px' }}>About Me</h2>
+        <motion.section className="flex items-center justify-center" variants={title}>
+          <h2 style={{ marginTop: '100px', fontSize: '50px', fontWeight: '10' }}>About Me</h2>
         </motion.section>
       </motion.div>
     </motion.section>

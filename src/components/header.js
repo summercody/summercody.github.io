@@ -18,20 +18,33 @@ export default function HeaderBar(){
           }}>
             <Toolbar style={{
               color: "#000000",
-              gap: "8px"
+              justifyContent: 'space-between',
+              paddingLeft: '40px',
+              paddingRight: '40px'
             }}>
-              <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
-                Summer Cody
+              <div className="font-thin text-2xl" sx={{ flexGrow: 1 }}>
+                summercody.io
+              </div>
+              <div className="flex gap-8">
+              <Typography>
+                <Link sx={{
+                  textDecoration: 'none',
+                  color: '#838383'
+                }} component={RouterLink} to="/">Home</Link>
               </Typography>
               <Typography>
-                <Link component={RouterLink} to="/">Home</Link>
+                <Link sx={{
+                  textDecoration: 'none',
+                  color: '#838383'
+                }} component={RouterLink} to="/about">About</Link>
               </Typography>
               <Typography>
-                <Link component={RouterLink} to="/about">About</Link>
+                <Link sx={{
+                  textDecoration: 'none',
+                  color: '#838383'
+                }} component={RouterLink} to="/contact">Contact</Link>
               </Typography>
-              <Typography>
-                <Link component={RouterLink} to="/contact">Contact</Link>
-              </Typography>
+              </div>
             </Toolbar>
           </AppBar>
         </Box>

@@ -136,9 +136,9 @@ export default function Home({isFirstMount}) {
                 <motion.section variants={header}>
                     <HeaderBar />
                 </motion.section>
-                <motion.h2 variants={title}>
-                    <h2 style={{ marginTop: '30px', marginLeft: '25px' }}>Welcome</h2>
-                </motion.h2>
+                <motion.div variants={title} className="flex items-center justify-center">
+                    <text style={{ marginTop: '100px', fontSize: '50px', fontWeight: '10' }}>Welcome</text>
+                </motion.div>
             </motion.div>
         </motion.section> 
     );
