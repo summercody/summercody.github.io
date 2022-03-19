@@ -22,6 +22,7 @@ const blackBox = {
         height: 0,
         backgroundColor: "#000000",
         transition: {
+            when: 'afterChildren',
             duration: 1.5,
             ease: [0.87, 0, 0.13, 1]
         }
@@ -37,7 +38,11 @@ const InitialTransition = () => {
                 className="relative z-50 w-full bg-black"
                 initial="initial"
                 animate="animate"
-                    variants={blackBox}
+                variants={blackBox}
+                onAnimationStart={() => document.body.classList.add("overflow-hidden")}
+                onAnimationComplete={() =>
+                    document.body.classList.remove("overflow-hidden")
+                  }
             />
 
         </div>
@@ -45,11 +50,11 @@ const InitialTransition = () => {
 }
 
 
-export default function Home() {
+export default function Home({isFirstMount}) {
 
     return (
         <motion.div exit={{ opacity: 0 }}>
-            <InitialTransition />
+            {isFirstMount && <InitialTransition />}
             <HeaderBar />
             <h2 style={{ marginTop: '30px', marginLeft: '25px' }}>Welcome</h2>
         </motion.div> 

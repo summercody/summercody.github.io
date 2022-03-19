@@ -6,13 +6,15 @@ import { AnimatePresence } from 'framer-motion';
 import { useLocation } from 'react-router-dom';
 
 
-export default function PageRoutes(){
+
+export default function PageRoutes({isFirstMount}){
+
     const location = useLocation();
 
     return(
         <AnimatePresence exitBeforeEnter>
             <Routes location={location} key={location.pathname}>
-                <Route exact path="/" element={<Home />} />  
+                <Route exact path="/" element={<Home isFirstMount={isFirstMount} />} />  
                 <Route path="/about" element={<About />} />  
                 <Route path="/contact" element={<Contact />} />
             </Routes>
