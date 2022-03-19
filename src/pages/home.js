@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 require('react-dom');
 window.React2 = require('react');
-console.log(window.React1 === window.React2);
+console.log(window.React1 == window.React2);
 
 export default function Home() {
     return (

@@ -6,10 +6,12 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { Link as RouterLink } from 'react-router-dom';
 import Link from '@mui/material/Link';
+import { useState } from 'react';
 
 
-export default function HeaderBar(title){
-    return (
+export default function HeaderBar(){
+ 
+      return (
         <Box sx={{ flexGrow: 1 }}>
           <AppBar position="fixed" elevation={0} style={{
             backgroundColor: "transparent",

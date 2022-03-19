@@ -8,7 +8,9 @@ import Home from './pages/home';
 import PageRoutes from './components/routes'
 import { AnimatePresence } from "framer-motion";
 
+
 function App() {
+
   return (
     <div className="App">
       <HeaderBar />
