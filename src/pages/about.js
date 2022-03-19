@@ -1,13 +1,14 @@
-import * as React from 'react';
-import { useState } from 'react';
-import { Button } from '@mui/material';
+import HeaderBar from "../components/header";
+import { motion } from "framer-motion"
 
 export default function About() {
 
 
   return (
-
-        <h2 style={{ marginTop: '80px', marginLeft: '25px' }}>About Me</h2>
-
+    <motion.div exit={{ opacity: 0 }}>
+      <HeaderBar />
+      <h2 style={{ marginTop: '30px', marginLeft: '25px' }}>About Me</h2>
+    </motion.div>
+        
   );
 }

@@ -13,7 +13,7 @@ export default function HeaderBar(){
  
       return (
         <Box sx={{ flexGrow: 1 }}>
-          <AppBar position="fixed" elevation={0} style={{
+          <AppBar position="static" elevation={0} style={{
             backgroundColor: "transparent",
           }}>
             <Toolbar style={{
