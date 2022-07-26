@@ -40,8 +40,9 @@ export default function About() {
         <motion.section variants={header}>
           <HeaderBar />
         </motion.section>
-        <motion.section className="flex items-center justify-center" variants={title}>
-          <h2 style={{ marginTop: '100px', fontSize: '50px', fontWeight: '10' }}>About Me</h2>
+        <motion.section style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', marginTop: '80px' }} variants={title}>
+          <h2 style={{ fontSize: '50px', fontWeight: '10' }}>About Me</h2>
+          <text style={{ fontWeight: '50' }}>(under construction)</text>
         </motion.section>
       </motion.div>
     </motion.section>
