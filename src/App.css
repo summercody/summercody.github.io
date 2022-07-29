@@ -1,4 +1,8 @@
 
+body{
+  height: 100vh;
+}
+
 .App {
   justify-content: center;
 }

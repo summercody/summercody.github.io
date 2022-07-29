@@ -108,16 +108,16 @@ const background = {
 
 const InitialTransition = () => {
   return (
-    <div className="absolute inset-0 flex items-end justify-center">
+    <div className="absolute inset-0 flex items-end justify-center" style={{ overflow:'hidden' }}>
       <motion.div
         className="relative z-50 flex w-full bg-black items-center justify-center"
         initial="initial"
         animate="animate"
         variants={blackBox}
         onAnimationStart={() => document.body.classList.add("overflow-hidden")}
-      /* onAnimationComplete={() =>
-           /*document.body.classList.remove("overflow-hidden")
-         }*/
+        onAnimationComplete={() =>
+        document.body.classList.remove("overflow-hidden")
+        }
       >
         <motion.svg variants={textContainer} className="absolute z-50 flex">
           <pattern
@@ -147,33 +147,36 @@ const InitialTransition = () => {
   )
 }
 
-const buttonLinks = [{ name: "GitHub", link: "https://github.com/summercody" }, { name: "LinkedIn", link: "https://www.linkedin.com/in/summercody/" }, { name: "Contact Me", link: null }] // "Resume", 
+const buttonLinks = [{ name: "GitHub", link: "https://github.com/summercody" },
+  { name: "LinkedIn", link: "https://www.linkedin.com/in/summercody/" },
+  { name: "Contact Me", link: null }] // "Resume", 
 
 
 export default function Home({ isFirstMount }) {
 
   return (
-    <motion.section exit={{ opacity: 0 }}>
+    <motion.section exit={{ opacity: 0 }} style={{ height: '100vh'}}>
       {isFirstMount && <InitialTransition />}
       <motion.div
         initial="initial"
         animate="animate"
         variants={content(isFirstMount)}
-        style={{ position: 'relative' }}
+        style={{ position: 'relative',height: '100vh', overflow: 'hidden'}}
       >
-        <motion.div variants={background} style={{ position: "absolute", zIndex: -1, backgroundImage: `url(${image})`, height: '100vh', width: '100vw', backgroundSize: '100vw auto', opacity: '85%' }}></motion.div>
+        <motion.div variants={background} style={{ position: "absolute", zIndex: -1, backgroundImage: `url(${image})`,
+        height: '100vh', width: '100vw', overflow: 'hidden', backgroundSize: '100vw auto', opacity: '85%' }}></motion.div>
         <motion.section variants={header}>
           <HeaderBar />
         </motion.section>
         <motion.div variants={title} style={{ marginTop: '50px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          <div style={{ boxShadow: 'rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px', borderRadius: '4px', display: 'flex', alignItems: 'center', padding: '45px', gap: '10px', backgroundColor: 'rgba(255,255,255,0.9)', marginTop: '40px', height: '480px', width: '800px' }}>
+          <div style={{ boxShadow: 'rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px', borderRadius: '4px', display: 'flex', alignItems: 'center', padding: '45px', gap: '20px', backgroundColor: 'rgba(255,255,255,0.9)', marginTop: '40px', height: '480px', width: '800px' }}>
             <motion.div variants={prof}>
               <img src={profile} style={{ borderRadius: '80px', boxShadow: 'rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px', minWidth: '270px', height: '410px' }} />
             </motion.div>
             <div style={{ display: 'flex', height: '100%', flexDirection: 'column', justifyContent: 'center' }}>
               <div style={{ display: 'flex', flexDirection: 'column', flex: 1, textAlign: 'right', justifyContent: 'center' }}>
                 <text style={{ fontSize: '50px', fontWeight: '10' }}>Welcome!</text>
-                <text style={{ fontSize: '15px', fontWeight: '150' }}>I'm Summer, a self-taught full stack developer with a passion for learning. Here are some ways you can get to know me:</text>
+                <text style={{ fontSize: '15px', fontWeight: '150' }}>I'm Summer, a full-stack software developer with a passion for learning. Here are some ways you can get to know me:</text>
                 <div className="buttonHolder" style={{ marginTop: '10px', display: 'flex', justifyContent: 'flex-end', gap: '15px' }}>
                   {buttonLinks.map((buttonLink) => {
                     if (buttonLink.name == "Contact Me") {
