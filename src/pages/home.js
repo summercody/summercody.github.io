@@ -110,7 +110,7 @@ const background = {
 
 const InitialTransition = () => {
   return (
-    <div className="absolute inset-0 flex items-end justify-center" style={{ overflow:'hidden' }}>
+    <div className="absolute inset-0 flex items-end justify-center" style={{ overflow: 'hidden' }}>
       <motion.div
         className="relative z-50 flex w-full bg-black items-center justify-center"
         initial="initial"
@@ -118,7 +118,7 @@ const InitialTransition = () => {
         variants={blackBox}
         onAnimationStart={() => document.body.classList.add("overflow-hidden")}
         onAnimationComplete={() =>
-        document.body.classList.remove("overflow-hidden")
+          document.body.classList.remove("overflow-hidden")
         }
       >
         <motion.svg variants={textContainer} className="absolute z-50 flex">
@@ -152,7 +152,7 @@ const InitialTransition = () => {
 const buttonLinks = [
   { name: "GitHub", link: "https://github.com/summercody" },
   { name: "LinkedIn", link: "https://www.linkedin.com/in/summercody/" },
-  { name: "About Me", link: null}
+  { name: "About Me", link: null }
 ] // "Resume", 
 
 
@@ -161,16 +161,18 @@ export default function Home({ isFirstMount }) {
   const [copied, setCopied] = useState(false)
 
   return (
-    <motion.section exit={{ opacity: 0 }} style={{ height: '100vh'}}>
+    <motion.section exit={{ opacity: 0 }} style={{ height: '100vh' }}>
       {isFirstMount && <InitialTransition />}
       <motion.div
         initial="initial"
         animate="animate"
         variants={content(isFirstMount)}
-        style={{ position: 'relative',height: '100vh', overflow: 'hidden'}}
+        style={{ position: 'relative', height: '100vh', overflow: 'hidden' }}
       >
-        <motion.div variants={background} style={{ position: "absolute", zIndex: -1, backgroundImage: `url(${image})`,
-        height: '100vh', width: '100vw', overflow: 'hidden', backgroundSize: '100vw auto', opacity: '85%' }}></motion.div>
+        <motion.div variants={background} style={{
+          position: "absolute", zIndex: -1, backgroundImage: `url(${image})`,
+          height: '100vh', width: '100vw', overflow: 'hidden', backgroundSize: '100vw auto', opacity: '85%'
+        }}></motion.div>
         <motion.section variants={header}>
           <HeaderBar />
         </motion.section>
@@ -183,20 +185,30 @@ export default function Home({ isFirstMount }) {
               <div style={{ display: 'flex', flexDirection: 'column', flex: 1, textAlign: 'right', justifyContent: 'center' }}>
                 <text style={{ fontSize: '50px', fontWeight: '10' }}>Welcome!</text>
                 <text style={{ fontSize: '15px', fontWeight: '150' }}>I'm Summer, a full-stack software developer with a passion for learning. Here are some ways you can get to know me:</text>
-                <div className="buttonHolder" style={{ marginTop: '10px', display: 'flex', justifyContent: 'flex-end', gap: '15px' }}>
+                <ul style={{ display: 'flex', gap: '6px', justifyContent: 'flex-end', marginTop: '8px'}}>
+                  <li style={{ fontSize: '13px', fontWeight: '400' }}>Proficiencies: </li>
+                  <li style={{ fontSize: '13px', fontWeight: '100' }}>Python |</li>
+                  <li style={{ fontSize: '13px', fontWeight: '100' }}>JavaScript |</li>
+                  <li style={{ fontSize: '13px', fontWeight: '100' }}>React.js |</li>
+                  <li style={{ fontSize: '13px', fontWeight: '100' }}>PostgreSQL |</li>
+                  <li style={{ fontSize: '13px', fontWeight: '100' }}>AWS</li>
+                  {/* <li style={{ fontSize: '15px', fontWeight: '100'  }}>Pandas</li> */}
+                </ul>
+                <div className="buttonHolder" style={{ marginTop: '14px', display: 'flex', justifyContent: 'flex-end', gap: '15px' }}>
                   {buttonLinks.map((buttonLink) => {
                     if (buttonLink.name == "Email") {
                       return (
-                          <button onClick={() => window.location = 'mailto:scody.contactme@gmail.com'} style={{ 
-                            backgroundColor: 'transparent', border: '1px solid grey', padding: '10px', borderRadius: '20px',
-                            fontSize: '12px' }}>{buttonLink.name}</button>
+                        <button onClick={() => window.location = 'mailto:scody.contactme@gmail.com'} style={{
+                          backgroundColor: 'transparent', border: '1px solid grey', padding: '10px', borderRadius: '20px',
+                          fontSize: '12px'
+                        }}>{buttonLink.name}</button>
                       )
                     } else if (buttonLink.name == "About Me") {
                       return (
                         <Link sx={{
                           textDecoration: 'none',
                           color: 'black',
-                          backgroundColor: 'transparent', 
+                          backgroundColor: 'transparent',
                           border: '1px solid grey',
                           padding: '10px', borderRadius: '20px', fontSize: '12px'
                         }} component={RouterLink} to="/about">{buttonLink.name}</Link>
@@ -211,48 +223,42 @@ export default function Home({ isFirstMount }) {
                   })}
                 </div>
               </div>
-              <ul style={{ display: 'flex', gap: '8px', justifyContent: 'flex-end'}}>
-                  <li style={{ fontSize: '15px', fontWeight: '400'}}>Proficiencies: </li>
-                  <li style={{ fontSize: '15px', fontWeight: '100'  }}>Python</li>
-                  <li style={{ fontSize: '15px', fontWeight: '100'  }}>JS</li>
-                  <li style={{ fontSize: '15px', fontWeight: '100'  }}>React.js</li>
-                  <li style={{ fontSize: '15px', fontWeight: '100'  }}>PostgreSQL</li>
-                  <li style={{ fontSize: '15px', fontWeight: '100'  }}>AWS</li>
-                  {/* <li style={{ fontSize: '15px', fontWeight: '100'  }}>Pandas</li> */}
-              </ul>
               <div style={{ display: 'flex', gap: '5px', justifyContent: 'flex-end', alignItems: 'center', margin: '18px 0 8px 15px', }}>
                 <p style={{ fontSize: '15px', fontWeight: '400' }}>Email Me:</p>
-                <button onClick={() => window.location = 'mailto:scody.contactme@gmail.com'} style={{ fontWeight: '100', fontSize: '15px', textDecoration: 'underline'}}>scody.contactme@gmail.com</button>
+                <button onClick={() => window.location = 'mailto:scody.contactme@gmail.com'} style={{ fontWeight: '100', fontSize: '15px', textDecoration: 'underline' }}>scody.contactme@gmail.com</button>
                 {!copied && (
-                  <button style ={{ display: 'flex', fontSize: '10px', alignItems: 'center',
-                  justifyContent: 'center',
-                  padding: '2px 4px',
-                  color: 'black',
-                  backgroundColor: 'transparent',
-                  border: '1px solid grey',
-                  marginLeft: '5px',
-                  borderRadius: '4px'
-                }} onClick={() => {
-                  navigator.clipboard.writeText('scody.contactme@gmail.com');
-                  setCopied(true);
+                  <button style={{
+                    display: 'flex', fontSize: '10px', alignItems: 'center',
+                    justifyContent: 'center',
+                    padding: '2px 4px',
+                    color: 'black',
+                    backgroundColor: 'transparent',
+                    border: '1px solid grey',
+                    marginLeft: '5px',
+                    borderRadius: '4px'
+                  }} onClick={() => {
+                    navigator.clipboard.writeText('scody.contactme@gmail.com');
+                    setCopied(true);
                   }}>Copy</button>
                 )}
                 {copied && (
-                  <button style ={{ display: 'flex', fontSize: '10px', alignItems: 'center',
-                  justifyContent: 'center',
-                  padding: '2px 4px',
-                  color: 'white',
-                  backgroundColor: 'gray',
-                  border: '1px solid white',
-                  marginLeft: '5px',
-                  borderRadius: '4px'
-                }}>Copied!</button>
+                  <button style={{
+                    display: 'flex', fontSize: '10px', alignItems: 'center',
+                    justifyContent: 'center',
+                    padding: '2px 4px',
+                    color: 'white',
+                    backgroundColor: 'gray',
+                    border: '1px solid white',
+                    marginLeft: '5px',
+                    borderRadius: '4px'
+                  }}>Copied!</button>
                 )}
               </div>
 
-              <a href="https://www.google.com/search?q=coredo+muromachi&tbm=isch&ved=2ahUKEwil_bfEkJb5AhUkomoFHZN7BbYQ2-cCegQIABAA&oq=coredo+mu&gs_lcp=CgNpbWcQARgAMgUIABCABDIFCAAQgAQyBAgAEBgyBAgAEBgyBAgAEBg6BAgAEEM6CAgAELEDEIMBOggIABCABBCxAzoLCAAQgAQQsQMQgwE6BwgAEIAEEAo6BggAEB4QBToECAAQHjoGCAAQHhAIUM0FWLIRYOMbaABwAHgAgAFjiAG7BpIBAjEwmAEAoAEBqgELZ3dzLXdpei1pbWfAAQE&sclient=img&ei=z6TfYuXZGaTEqtsPk_eVsAs&bih=714&biw=1235&client=firefox-b-1-d" target="_blank" rel="noopener noreferrer" style={{ 
-                alignSelf: 'flex-end', marginBottom: '-11px', fontSize: '12.5px', fontWeight: '100' }}>
-                  Where did I take the background picture? 🤔
+              <a href="https://www.google.com/search?q=coredo+muromachi&tbm=isch&ved=2ahUKEwil_bfEkJb5AhUkomoFHZN7BbYQ2-cCegQIABAA&oq=coredo+mu&gs_lcp=CgNpbWcQARgAMgUIABCABDIFCAAQgAQyBAgAEBgyBAgAEBgyBAgAEBg6BAgAEEM6CAgAELEDEIMBOggIABCABBCxAzoLCAAQgAQQsQMQgwE6BwgAEIAEEAo6BggAEB4QBToECAAQHjoGCAAQHhAIUM0FWLIRYOMbaABwAHgAgAFjiAG7BpIBAjEwmAEAoAEBqgELZ3dzLXdpei1pbWfAAQE&sclient=img&ei=z6TfYuXZGaTEqtsPk_eVsAs&bih=714&biw=1235&client=firefox-b-1-d" target="_blank" rel="noopener noreferrer" style={{
+                alignSelf: 'flex-end', marginBottom: '-11px', fontSize: '12.5px', fontWeight: '100'
+              }}>
+                Where did I take the background picture? 🤔
               </a>
             </div>
           </div>
