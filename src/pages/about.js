@@ -93,13 +93,11 @@ export default function About() {
               <br />
               <p>(I also love to travel! See this wonderful Icelandic horse mistaking my jacket for lunch.)</p>
               <div style={{ height: '2px', backgroundColor: '#7e913a', width: '80px', margin: '18px 0px' }}></div>
-              <p><strong>Languages</strong>: Python &#8226; JS &#8226; CSS</p>
-              <p><strong>Libraries</strong>: React.js &#8226; Pandas &#8226; SQLAlchemy &#8226; Flask API</p>
-              <p><strong>Databases & Security</strong>: PostreSQL &#8226; AWS</p>
+              <p style={{ fontSize: '15px' }}><strong>Languages</strong>: Python &#8226; JS &#8226; CSS</p>
+              <p style={{ fontSize: '15px' }}><strong>Libraries & Frameworks</strong>: React &#8226; Pandas &#8226; SQLAlchemy &#8226; Flask</p>
+              <p style={{ fontSize: '15px' }}><strong>Databases & Security</strong>: PostreSQL &#8226; AWS</p>
               {/* <a href={picLink} target="_blank" rel="noopener noreferrer" style={{ 
                 alignSelf: 'flex-end',fontSize: '12.5px'}}>Where did I take this picture? 🤔</a> */}
-                
-
             </div>
             </motion.div>
           </div>
