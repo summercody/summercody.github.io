@@ -8,11 +8,9 @@ import Link from '@mui/material/Link';
 
 
 require('react-dom');
-window.React2 = require('react');
-console.log(window.React1 == window.React2);
 
 
-
+// Transition containers
 const blackBox = {
 
   initial: {
@@ -108,6 +106,7 @@ const background = {
   },
 };
 
+
 const InitialTransition = () => {
   return (
     <div className="absolute inset-0 flex items-end justify-center" style={{ overflow: 'hidden' }}>
@@ -149,12 +148,21 @@ const InitialTransition = () => {
   )
 }
 
+
+// other variables
 const buttonLinks = [
   { name: "GitHub", link: "https://github.com/summercody" },
   { name: "LinkedIn", link: "https://www.linkedin.com/in/summercody/" },
   { name: "About Me", link: null }
 ] // "Resume", 
 
+let emailAddress = 'scody.contactme@gmail.com'
+let mailtoAddress = 'mailto:' + emailAddress 
+
+let findPhotoUrl = 'https://www.google.com/search?q=coredo+muromachi&tbm=isch&ved=2ahUKEwil_bfEkJb5AhUkomoFHZN7BbYQ2-cCegQIABAA&oq=' + 
+  'coredo+mu&gs_lcp=CgNpbWcQARgAMgUIABCABDIFCAAQgAQyBAgAEBgyBAgAEBgyBAgAEBg6BAgAEEM6CAgAELEDEIMBOggIABCABBCxAzoLCAAQgAQQsQMQgwE6Bwg' +
+  'AEIAEEAo6BggAEB4QBToECAAQHjoGCAAQHhAIUM0FWLIRYOMbaABwAHgAgAFjiAG7BpIBAjEwmAEAoAEBqgELZ3dzLXdpei1pbWfAAQE&sclient=img&ei=z6TfYuXZ' + 
+  'GaTEqtsPk_eVsAs&bih=714&biw=1235&client=firefox-b-1-d'
 
 export default function Home({ isFirstMount }) {
 
@@ -177,20 +185,39 @@ export default function Home({ isFirstMount }) {
           <HeaderBar />
         </motion.section>
         <motion.div variants={title} style={{ marginTop: '50px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          <div style={{ boxShadow: 'rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px', borderRadius: '4px', display: 'flex', alignItems: 'center', padding: '45px', gap: '20px', backgroundColor: 'rgba(255,255,255,0.9)', marginTop: '40px', height: '480px', width: '800px' }}>
+          <div style={{ 
+              boxShadow: 'rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12)' + 
+                '0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px',
+              borderRadius: '4px',
+              display: 'flex',
+              alignItems: 'center',
+              padding: '45px',
+              gap: '20px',
+              backgroundColor: 'rgba(255,255,255,0.9)',
+              marginTop: '40px',
+              height: '480px',
+              width: '800px'
+          }}>
             <motion.div variants={prof}>
-              <img src={profile} style={{ borderRadius: '4px', boxShadow: 'rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px', minWidth: '270px', height: '410px' }} />
+              <img src={profile} style={{
+                borderRadius: '4px',
+                boxShadow: 'rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px',
+                minWidth: '270px',
+                height: '410px'
+              }}/>
             </motion.div>
             <div style={{ display: 'flex', height: '100%', flexDirection: 'column', justifyContent: 'center' }}>
               <div style={{ display: 'flex', flexDirection: 'column', flex: 1, textAlign: 'right', justifyContent: 'center' }}>
                 <text style={{ fontSize: '50px', fontWeight: '10' }}>Welcome!</text>
-                <text style={{ fontSize: '15px', fontWeight: '150' }}>I'm Summer, a full-stack software developer with a passion for learning. Here are some ways you can get to know me:</text>
+                <text style={{ fontSize: '15px', fontWeight: '150' }}>
+                  I'm Summer, a full-stack software developer with a passion for learning. Here are some ways you can get to know me:
+                </text>
                 <ul style={{ display: 'flex', gap: '6px', justifyContent: 'flex-end', marginTop: '8px'}}>
                   <li style={{ fontSize: '13px', fontWeight: '400' }}>Proficiencies: </li>
                   <li style={{ fontSize: '13px', fontWeight: '100' }}>Python |</li>
                   <li style={{ fontSize: '13px', fontWeight: '100' }}>JavaScript |</li>
                   <li style={{ fontSize: '13px', fontWeight: '100' }}>React.js |</li>
-                  <li style={{ fontSize: '13px', fontWeight: '100' }}>PostgreSQL |</li>
+                  <li style={{ fontSize: '13px', fontWeight: '100' }}>SQL |</li>
                   <li style={{ fontSize: '13px', fontWeight: '100' }}>AWS</li>
                   {/* <li style={{ fontSize: '15px', fontWeight: '100'  }}>Pandas</li> */}
                 </ul>
@@ -198,10 +225,12 @@ export default function Home({ isFirstMount }) {
                   {buttonLinks.map((buttonLink) => {
                     if (buttonLink.name == "Email") {
                       return (
-                        <button onClick={() => window.location = 'mailto:scody.contactme@gmail.com'} style={{
+                        <button onClick={() => window.location = mailtoAddress} style={{
                           backgroundColor: 'transparent', border: '1px solid grey', padding: '10px', borderRadius: '20px',
                           fontSize: '12px'
-                        }}>{buttonLink.name}</button>
+                        }}>
+                          {buttonLink.name}
+                        </button>
                       )
                     } else if (buttonLink.name == "About Me") {
                       return (
@@ -216,16 +245,43 @@ export default function Home({ isFirstMount }) {
                     } else {
                       return (
                         <a href={buttonLink.link} target="_blank" rel="noopener noreferrer">
-                          <button style={{ backgroundColor: 'transparent', border: '1px solid grey', padding: '10px', borderRadius: '20px', fontSize: '12px' }}>{buttonLink.name}</button>
+                          <button style={{
+                            backgroundColor: 'transparent',
+                            border: '1px solid grey',
+                            padding: '10px',
+                            borderRadius: '20px', 
+                            fontSize: '12px'
+                          }}>
+                            {buttonLink.name}
+                          </button>
                         </a>
                       )
                     }
                   })}
                 </div>
               </div>
-              <div style={{ display: 'flex', gap: '5px', justifyContent: 'flex-end', alignItems: 'center', margin: '18px 0 8px 15px', }}>
-                <p style={{ fontSize: '15px', fontWeight: '400' }}>Email Me:</p>
-                <button onClick={() => window.location = 'mailto:scody.contactme@gmail.com'} style={{ fontWeight: '100', fontSize: '15px', textDecoration: 'underline' }}>scody.contactme@gmail.com</button>
+              <div style={{
+                  display: 'flex',
+                  gap: '5px',
+                  justifyContent: 'flex-end',
+                  alignItems: 'center',
+                  margin: '18px 0 8px 15px'
+                }}>
+                <p style={{
+                  fontSize: '15px',
+                  fontWeight: '400'
+                }}>
+                  Email Me:
+                </p>
+                <button 
+                  onClick={() => window.location = mailtoAddress}
+                  style={{
+                    fontWeight: '100',
+                    fontSize: '15px',
+                    textDecoration: 'underline' 
+                  }}>
+                    {emailAddress}
+                </button>
                 {!copied && (
                   <button style={{
                     display: 'flex', fontSize: '10px', alignItems: 'center',
@@ -237,7 +293,7 @@ export default function Home({ isFirstMount }) {
                     marginLeft: '5px',
                     borderRadius: '4px'
                   }} onClick={() => {
-                    navigator.clipboard.writeText('scody.contactme@gmail.com');
+                    navigator.clipboard.writeText(emailAddress);
                     setCopied(true);
                   }}>Copy</button>
                 )}
@@ -255,7 +311,7 @@ export default function Home({ isFirstMount }) {
                 )}
               </div>
 
-              <a href="https://www.google.com/search?q=coredo+muromachi&tbm=isch&ved=2ahUKEwil_bfEkJb5AhUkomoFHZN7BbYQ2-cCegQIABAA&oq=coredo+mu&gs_lcp=CgNpbWcQARgAMgUIABCABDIFCAAQgAQyBAgAEBgyBAgAEBgyBAgAEBg6BAgAEEM6CAgAELEDEIMBOggIABCABBCxAzoLCAAQgAQQsQMQgwE6BwgAEIAEEAo6BggAEB4QBToECAAQHjoGCAAQHhAIUM0FWLIRYOMbaABwAHgAgAFjiAG7BpIBAjEwmAEAoAEBqgELZ3dzLXdpei1pbWfAAQE&sclient=img&ei=z6TfYuXZGaTEqtsPk_eVsAs&bih=714&biw=1235&client=firefox-b-1-d" target="_blank" rel="noopener noreferrer" style={{
+              <a href={findPhotoUrl} target="_blank" rel="noopener noreferrer" style={{
                 alignSelf: 'flex-end', marginBottom: '-11px', fontSize: '12.5px', fontWeight: '100'
               }}>
                 Where did I take the background picture? 🤔
